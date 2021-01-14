@@ -12,3 +12,6 @@ Vou atualizar nosso windowsclone aos poucos.
 
 ### Adicionamos uma calculadora ao nosso Windows.
 ![Calculadora](https://github.com/kevinidias/windowsclone/blob/main/calculadora.gif)
+
+### E uma Lista de tarefas.
+![Lista de tarefas](https://github.com/kevinidias/windowsclone/blob/main/lista%20de%20tarefas.gif)
