@@ -82,6 +82,7 @@ export const AreaHour = styled.div`
     align-items: center;
     text-align:center;
     height: 100%;
+    flex-direction :column;
     width: 32%;
     color: #FFF;
     font-size: 12px;
@@ -101,6 +102,7 @@ export const AreaBiMessageAlt = styled.div`
     }
 `;
 
+//menu iniciar
 export const MenuTotalLeft = styled.div`
     display: flex;
     justify-content: flex-start;
@@ -108,19 +110,38 @@ export const MenuTotalLeft = styled.div`
     height: 95%;
     width: 100%;
     position: absolute;
-    background-color: transparent;
+    background-color: transparent;   
 `;
 
-//menu iniciar
+
 export const AreaMenuLeft = styled.div`
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: flex-start;
+    align-items: flex-end;
     height: 95%;
     width: 25%;
     background-color: #353535;
+    padding: 4px;
+    flex-direction: column;
 `;
 
+export const Area1MenuLeft = styled.div`
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 65%;
+    height: 5%;
+    cursor: pointer;
+    :hover{
+        background-color: #5a5a5a;
+    }
+`;
+
+export const Area2MenuLeft = styled(Area1MenuLeft)``;
+
+
+
+//central de notificações
 export const MenuTotalRight = styled.div`
     display: flex;
     justify-content: flex-end;
@@ -132,7 +153,7 @@ export const MenuTotalRight = styled.div`
 `;
 
 
-//central de notificações
+
 export const AreaMenuRight = styled.div`
     display: flex;
     justify-content: center;
@@ -195,111 +216,6 @@ export const AreaItemsMenuRight = styled.div`
     flex-wrap: wrap;
 `;
 
-export const AreaIconNameRede = styled.div`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 32%;
-    width: 24.2%;
-    flex-direction: column;
-    background-color: #4F4F4F;
-    :hover{
-        border: 1px solid #FFF;
-        background-color: #636363;
-    }
-    
-`;
-
-export const AreaMdNetworkWifi = styled.div`
-    display: flex;
-    justify-content: flex-start;
-    align-items: flex-start;
-    height: 40%;
-    width: 100%;
-`;
-
-export const AreaRede = styled.div`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 50%;
-    width: 100%;
-`;
-
-export const NameRede = styled.p`
-    height: 20%;
-    width: 90.3%;
-    color: #FFF;
-`;
-
-export const AreaIconNameLocation = styled(AreaIconNameRede)``;
-
-export const AreaVscLocation = styled(AreaMdNetworkWifi)``;
-
-export const AreaLocation = styled(AreaRede)``;
-
-export const NameLocation = styled(NameRede)``;
-
-export const AreaIconNameSun = styled(AreaIconNameRede)``;
-
-export const AreaIoSunnyOutline = styled(AreaMdNetworkWifi)``;
-
-export const AreaSun = styled(AreaRede)``;
-
-export const NameIoSun = styled(NameRede)``;
-
-export const AreaIconNameGear = styled(AreaIconNameRede)``;
-
-export const AreaVscGear = styled(AreaMdNetworkWifi)``;
-
-export const AreaGear = styled(AreaRede)``;
-
-export const NameGear = styled(NameRede)``;
-
-export const AreaIconNameMoon = styled(AreaIconNameRede)`
-`;
-
-export const AreaBiMoon = styled(AreaMdNetworkWifi)``;
-
-export const AreaMoon = styled(AreaRede)`
-    height: 55%;
-`;
-
-export const NameMoon = styled(NameRede)`
-    height: 100%;
-`;
-
-export const AreaIconNameScissors = styled(AreaIconNameRede)``;
-
-export const AreaRiScissorsCutLine = styled(AreaMdNetworkWifi)``;
-
-export const AreScissors = styled(AreaRede)``;
-
-export const NameScissors = styled(NameRede)``;
-
-export const AreaIconNameVPN = styled(AreaIconNameRede)``;
-
-export const AreaFaProjectDiagram = styled(AreaMdNetworkWifi)``;
-
-export const AreaVPN = styled(AreaRede)``;
-
-export const NameVPN = styled(NameRede)``;
-
-export const AreaIconNamebluetooth = styled(AreaIconNameRede)``;
-
-export const AreaRiBluetoothConnectLine = styled(AreaMdNetworkWifi)``;
-
-export const Areabluetooth = styled(AreaRede)``;
-
-export const Namebluetooth = styled(NameRede)``;
-
-export const AreaIconNameConnect = styled(AreaIconNameRede)``;
-
-export const AreaMdCastConnected = styled(AreaMdNetworkWifi)``;
-
-export const AreaConnect = styled(AreaRede)``;
-
-export const NameConnect = styled(NameRede)``;
 
 
 

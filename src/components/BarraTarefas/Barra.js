@@ -7,7 +7,14 @@ import { MdNetworkWifi, MdCastConnected } from 'react-icons/md';
 import { VscLocation, VscGear } from 'react-icons/vsc';
 import { IoSunnyOutline } from 'react-icons/io5';
 import { RiScissorsCutLine, RiBluetoothConnectLine } from 'react-icons/ri';
-import { FaProjectDiagram } from 'react-icons/fa';  
+import { FaProjectDiagram, FaCalculator } from 'react-icons/fa';  
+import { BsCardChecklist } from 'react-icons/bs';
+
+
+import ItemRight from './MenuRight/Itensmenuright';
+import ItensLeft from './MenuLeft/Itensmenuleft';
+import Time from './Hours/hours';
+
 import { Container,
          AreaImWindows9,
          RemainingArea,
@@ -19,6 +26,8 @@ import { Container,
          AreaBiMessageAlt,
          MenuTotalLeft,
          AreaMenuLeft,
+         Area1MenuLeft,
+         Area2MenuLeft,
          MenuTotalRight,
          AreaMenuRight,
          Area1MenuRight,
@@ -28,49 +37,15 @@ import { Container,
          Area3MenuRight,
          NameRecolher,
          AreaItemsMenuRight,
-         AreaIconNameRede,
-         AreaMdNetworkWifi,
-         AreaRede,
-         NameRede,
-         AreaIconNameLocation,
-         AreaVscLocation,
-         AreaLocation,
-         NameLocation,
-         AreaIconNameSun,
-         AreaIoSunnyOutline,
-         AreaSun,
-         NameIoSun,
-         AreaIconNameGear,
-         AreaVscGear,
-         AreaGear,
-         NameGear,
-         AreaIconNameMoon,
-         AreaBiMoon,
-         AreaMoon,
-         NameMoon,
-         AreaIconNameScissors,
-         AreaRiScissorsCutLine,
-         AreScissors,
-         NameScissors,
-         AreaIconNameVPN,
-         AreaFaProjectDiagram,
-         AreaVPN,
-         NameVPN,
-         AreaIconNamebluetooth,
-         AreaRiBluetoothConnectLine,
-         Areabluetooth,
-         Namebluetooth,
-         AreaIconNameConnect,
-         AreaMdCastConnected,
-         AreaConnect,
-         NameConnect
          
 } from './styled';
 
 
 
 
-function Barra() {
+
+
+function Barra(props) {
 
     const clickMenuLeft = () => {
         if(Menuleft === false) {
@@ -105,10 +80,28 @@ function Barra() {
     }
 
 
+
+        
+    const OpenList = () => {
+        props.onList()
+        setMenuTotalLefts(false)
+    }
+
+
+    const OpenCalc = () => {
+        props.onCalc()
+        setMenuTotalLefts(false)
+    }
+
+
+
     const [ MenuTotalLefts, setMenuTotalLefts ] = useState(false);
     const [ Menuleft, setMenuleft ] = useState(false);
-    const [MenuTotalRights, setMenuTotalRights] = useState(true);
-    const [ Menuright, setMenuright ] = useState(true);
+    const [ MenuTotalRights, setMenuTotalRights] = useState(false);
+    const [ Menuright, setMenuright ] = useState(false);
+
+   
+
 
     return (
         <>
@@ -135,8 +128,7 @@ function Barra() {
                         PTB2
                     </AreaLanguage>
                     <AreaHour>
-                        08:54
-                        10/12/2020
+                        <Time />
                     </AreaHour>
                     <AreaBiMessageAlt onClick={()=> setMenuright(clickMenuRight)}>
                         <BiMessageAlt
@@ -152,13 +144,29 @@ function Barra() {
                 <MenuTotalLeft onClick={()=> setMenuTotalLefts(clickMenuTotals)}>
                     {Menuleft &&
                     //menu iniciar
-                        <AreaMenuLeft onClick={(e)=> e.stopPropagation()}>
+                        <AreaMenuLeft  onClick={(e)=> e.stopPropagation()}>
+                            <Area1MenuLeft onClick={OpenList}>
+                                <ItensLeft
+                                    name='Lista de tarefas'
+                                    icon={<BsCardChecklist style={{color: 'white', height: '100%', width:'100%'}} />}
+                                />     
+                            </Area1MenuLeft>
+
+                            <Area2MenuLeft onClick={OpenCalc}>
+                                <ItensLeft 
+                                    name='Calculadora'
+                                    icon={<FaCalculator style={{color: 'white', height: '90%', width:'100%'}} />}
+                                />
+                            </Area2MenuLeft>
 
                         </AreaMenuLeft>
                     }
                 </MenuTotalLeft>
             }
 
+
+
+        
             {MenuTotalRights &&
                 <MenuTotalRight onClick={()=> setMenuTotalRights(clickMenuTotals)}>
                     {Menuright &&
@@ -180,114 +188,74 @@ function Barra() {
                                 </NameRecolher>
                                     
                                 <AreaItemsMenuRight>
-                                    <AreaIconNameRede>
-                                        <AreaMdNetworkWifi>
-                                            <MdNetworkWifi
-                                                style={{color:'white', height: '75%', width:'30%'}}
-                                            />
-                                        </AreaMdNetworkWifi>
-                                            <AreaRede>
-                                                <NameRede>
-                                                    Rede
-                                                </NameRede>
-                                            </AreaRede>
-                                    </AreaIconNameRede>
-                                    <AreaIconNameLocation>
-                                        <AreaVscLocation>
-                                            <VscLocation
-                                                style={{color:'white', height: '85%', width:'30%'}}
-                                            />
-                                        </AreaVscLocation>
-                                            <AreaLocation>
-                                                <NameLocation>
-                                                    Localização
-                                                </NameLocation>
-                                            </AreaLocation>
-                                    </AreaIconNameLocation>
-                                    <AreaIconNameSun>
-                                        <AreaIoSunnyOutline>
-                                            <IoSunnyOutline
-                                                style={{color:'white', height: '85%', width:'30%'}}
-                                            />
-                                        </AreaIoSunnyOutline>
-                                            <AreaSun>
-                                                <NameIoSun>
-                                                    Luz noturna
-                                                </NameIoSun>
-                                            </AreaSun>
-                                    </AreaIconNameSun>
-                                    <AreaIconNameGear>
-                                        <AreaVscGear>
-                                            <VscGear
-                                                style={{color:'white', height: '75%', width:'30%'}}
-                                            />
-                                        </AreaVscGear>
-                                            <AreaGear>
-                                                <NameGear>
-                                                    Configurações
-                                                </NameGear>
-                                            </AreaGear>
-                                    </AreaIconNameGear>
-                                    <AreaIconNameMoon>
-                                        <AreaBiMoon>
-                                            <BiMoon
-                                                style={{color:'white', height: '75%', width:'30%'}}
-                                            />
-                                        </AreaBiMoon>
-                                            <AreaMoon>
-                                                <NameMoon>
-                                                    Assistente de foco
-                                                </NameMoon>
-                                            </AreaMoon>
-                                    </AreaIconNameMoon>
-                                    <AreaIconNameScissors>
-                                        <AreaRiScissorsCutLine>
-                                            <RiScissorsCutLine
-                                                style={{color:'white', height: '65%', width:'30%'}}
-                                            />
-                                        </AreaRiScissorsCutLine>
-                                            <AreScissors>
-                                                <NameScissors>
-                                                    Captura de tela
-                                                </NameScissors>
-                                            </AreScissors>
-                                    </AreaIconNameScissors>
-                                    <AreaIconNameVPN>
-                                        <AreaFaProjectDiagram>
-                                            <FaProjectDiagram
-                                                style={{color:'white', height: '55%', width:'30%'}}
-                                            />
-                                        </AreaFaProjectDiagram>
-                                            <AreaVPN>
-                                                <NameVPN>
-                                                    VPN
-                                                </NameVPN>
-                                            </AreaVPN>
-                                    </AreaIconNameVPN>
-                                    <AreaIconNamebluetooth>
-                                        <AreaRiBluetoothConnectLine>
-                                            <RiBluetoothConnectLine
-                                                style={{color:'white', height: '70%', width:'30%'}}
-                                            />
-                                        </AreaRiBluetoothConnectLine>
-                                            <Areabluetooth>
-                                                <Namebluetooth>
-                                                    Bluetooth
-                                                </Namebluetooth>
-                                            </Areabluetooth>
-                                    </AreaIconNamebluetooth>
-                                    <AreaIconNameConnect>
-                                        <AreaMdCastConnected>
-                                            <MdCastConnected
-                                                style={{color:'white', height: '65%', width:'30%'}}
-                                            />
-                                        </AreaMdCastConnected>
-                                            <AreaConnect>
-                                                <NameConnect>
-                                                    Conectar
-                                                </NameConnect>
-                                            </AreaConnect>
-                                    </AreaIconNameConnect>
+
+                                    <ItemRight 
+                                        nome="Rede"
+                                        Icon= {<MdNetworkWifi 
+                                            style={{color:'white', height: '85%', width:'30%'}}
+                                        />}
+                                    />
+
+                                    <ItemRight 
+                                        nome="Localização"
+                                        Icon= {<VscLocation 
+                                            style={{color:'white', height: '85%', width:'30%'}}
+                                        />}
+                                    />
+
+                                    <ItemRight 
+                                        nome="Luz noturna"
+                                        Icon = {<IoSunnyOutline
+                                            style={{color:'white', height: '85%', width:'30%'}}
+                                        />}                                    
+                                    />
+
+
+                                    
+                                    <ItemRight 
+                                        nome="Configurações"
+                                        Icon = {<VscGear
+                                            style={{color:'white', height: '75%', width:'30%'}}
+                                        />}                                    
+                                    />
+
+                                    <ItemRight 
+                                        nome="Assistente"
+                                        Icon = {<BiMoon
+                                            style={{color:'white', height: '75%', width:'30%'}}
+                                        />}                                    
+                                    />
+
+
+                                    <ItemRight 
+                                        nome="Capturar tela"
+                                        Icon = {<RiScissorsCutLine
+                                            style={{color:'white', height: '65%', width:'30%'}}
+                                        />}                                    
+                                    />
+                                    
+                                    <ItemRight 
+                                        nome="VPN"
+                                        Icon = {<FaProjectDiagram
+                                            style={{color:'white', height: '55%', width:'30%'}}
+                                        />}                                    
+                                    />
+
+                                    <ItemRight 
+                                        nome="Bluetooth"
+                                        Icon = {<RiBluetoothConnectLine
+                                            style={{color:'white', height: '70%', width:'30%'}}
+                                        />}                                    
+                                    />
+                                    
+                                    <ItemRight 
+                                        nome="Conectar"
+                                        Icon = {<MdCastConnected
+                                            style={{color:'white', height: '65%', width:'30%'}}
+                                        />}                                    
+                                    />
+
+
                                 </AreaItemsMenuRight>
                             </Area3MenuRight>
                         </AreaMenuRight>
